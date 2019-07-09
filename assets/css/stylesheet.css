@@ -1,0 +1,25 @@
+table {
+	border: solid black 1px;
+}
+
+.board table {
+    border-collapse: collapse;
+}
+
+
+.board td {
+    width: 20px;
+    height: 20px;
+    border: 0;
+}
+
+.board .col {
+    background-color: green;
+}
+
+.board .snake {
+    background-color: orange;
+}
+.board .food {
+	background-color: red;
+}

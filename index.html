@@ -1,11 +1,123 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+    <title>Snake</title>
+    <link href="assets/css/stylesheet.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <script src="js/script.js" charset="utf-8"></script>
+    <h1 style="text-align: center">Snake</h1>
+    <div class="board">
+      <table width="40%" height="466" align="center">
+        <tbody>
+          <tr>
+            <td class="grid" id="grid-80">&nbsp;</td>
+            <td class="grid" id="grid-81">&nbsp;</td>
+            <td class="grid" id="grid-82">&nbsp;</td>
+            <td class="grid" id="grid-83">&nbsp;</td>
+            <td class="grid" id="grid-84">&nbsp;</td>
+            <td class="grid" id="grid-85">&nbsp;</td>
+            <td class="grid" id="grid-86">&nbsp;</td>
+            <td class="grid" id="grid-87">&nbsp;</td>
+            <td class="grid" id="grid-88">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-70">&nbsp;</td>
+            <td class="grid" id="grid-71">&nbsp;</td>
+            <td class="grid" id="grid-72">&nbsp;</td>
+            <td class="grid" id="grid-73">&nbsp;</td>
+            <td class="grid" id="grid-74">&nbsp;</td>
+            <td class="grid" id="grid-75">&nbsp;</td>
+            <td class="grid" id="grid-76">&nbsp;</td>
+            <td class="grid" id="grid-77">&nbsp;</td>
+            <td class="grid" id="grid-78">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-60">&nbsp;</td>
+            <td class="grid" id="grid-61">&nbsp;</td>
+            <td class="grid" id="grid-62">&nbsp;</td>
+            <td class="grid" id="grid-63">&nbsp;</td>
+            <td class="grid" id="grid-64">&nbsp;</td>
+            <td class="grid" id="grid-65">&nbsp;</td>
+            <td class="grid" id="grid-66">&nbsp;</td>
+            <td class="grid" id="grid-67">&nbsp;</td>
+            <td class="grid" id="grid-68">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-50">&nbsp;</td>
+            <td class="grid" id="grid-51">&nbsp;</td>
+            <td class="grid" id="grid-52">&nbsp;</td>
+            <td class="grid" id="grid-53">&nbsp;</td>
+            <td class="grid" id="grid-54">&nbsp;</td>
+            <td class="grid" id="grid-55">&nbsp;</td>
+            <td class="grid" id="grid-56">&nbsp;</td>
+            <td class="grid" id="grid-57">&nbsp;</td>
+            <td class="grid" id="grid-58">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-40">&nbsp;</td>
+            <td class="grid" id="grid-41">&nbsp;</td>
+            <td class="grid" id="grid-42">&nbsp;</td>
+            <td class="grid" id="grid-43">&nbsp;</td>
+            <td class="grid" id="grid-44">&nbsp;</td>
+            <td class="grid" id="grid-45">&nbsp;</td>
+            <td class="grid" id="grid-46">&nbsp;</td>
+            <td class="grid" id="grid-47">&nbsp;</td>
+            <td class="grid" id="grid-48">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-30">&nbsp;</td>
+            <td class="grid" id="grid-31">&nbsp;</td>
+            <td class="grid" id="grid-32">&nbsp;</td>
+            <td class="grid" id="grid-33">&nbsp;</td>
+            <td class="grid" id="grid-34">&nbsp;</td>
+            <td class="grid" id="grid-35">&nbsp;</td>
+            <td class="grid" id="grid-36">&nbsp;</td>
+            <td class="grid" id="grid-37">&nbsp;</td>
+            <td class="grid" id="grid-38">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-20">&nbsp;</td>
+            <td class="grid" id="grid-21">&nbsp;</td>
+            <td class="grid" id="grid-22">&nbsp;</td>
+            <td class="grid" id="grid-23">&nbsp;</td>
+            <td class="grid" id="grid-24">&nbsp;</td>
+            <td class="grid" id="grid-25">&nbsp;</td>
+            <td class="grid" id="grid-26">&nbsp;</td>
+            <td class="grid" id="grid-27">&nbsp;</td>
+            <td class="grid" id="grid-28">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-10">&nbsp;</td>
+            <td class="grid" id="grid-11">&nbsp;</td>
+            <td class="grid" id="grid-12">&nbsp;</td>
+            <td class="grid" id="grid-13">&nbsp;</td>
+            <td class="grid" id="grid-14">&nbsp;</td>
+            <td class="grid" id="grid-15">&nbsp;</td>
+            <td class="grid" id="grid-16">&nbsp;</td>
+            <td class="grid" id="grid-17">&nbsp;</td>
+            <td class="grid" id="grid-18">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grid" id="grid-00">&nbsp;</td>
+            <td class="grid" id="grid-01">&nbsp;</td>
+            <td class="grid" id="grid-02">&nbsp;</td>
+            <td class="grid" id="grid-03">&nbsp;</td>
+            <td class="grid" id="grid-04">&nbsp;</td>
+            <td class="grid" id="grid-05">&nbsp;</td>
+            <td class="grid" id="grid-06">&nbsp;</td>
+            <td class="grid" id="grid-07">&nbsp;</td>
+            <td class="grid" id="grid-08">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="preview"></div>
+      <div class="score">
+        <p>Game is Over</p>
+        <p>Your score is <span class="score-value"></span></p>
+      </div>
+      <button type="button">Start</button>
+    </div>
+    <script src="assets/js/script.js" charset="utf-8"></script>
   </body>
 </html>
