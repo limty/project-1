@@ -79,11 +79,9 @@ var checkDie = function(){
         dieTasks();
         console.log("Debug: Hit Wall");
     };
-    //check eat self
-    //if(arrayContainsArray(currentHeadPos,snake.slice(0,-1))){ //slice head away from array and compare
 
     //check eat self
-    for(var i = snake.length-2; i>0; i--){
+    for(var i = snake.length-2; i>0; i--){ //Check in body
         if (
           snake[i][xDir] === snake[snake.length-1][xDir] &&
           snake[i][yDir] === snake[snake.length-1][yDir]
@@ -97,7 +95,7 @@ var checkDie = function(){
     //};
 };
 
-var itemInSnakeBodyArr = function(){
+var itemInSnakeBody = function(){
 
 };
 
