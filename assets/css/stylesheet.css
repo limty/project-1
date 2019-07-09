@@ -1,5 +1,18 @@
+body {
+  background-image: url("../img/bg.png");
+  background-color: YellowGreen;
+  color: white;
+}
+
+h1 {
+	letter-spacing: 0.1em;
+	font-size: 30px;
+}
+
 table {
+	border-radius: 10px;
 	border: solid black 1px;
+	background-color: white;
 /*	width: 480;
 	height: 640;*/
 }
@@ -16,15 +29,14 @@ table {
 }
 
 .grid {
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 .snake {
-    background-color: orange;
+    background-color: green;
 }
 .food {
-	background-color: red;
+	/*background-color: gray;*/
+	background-image: url("../img/mouse.png");
+	background-repeat: no-repeat; /*Fix image "Overflow" Problem
 }
-/*.bg {
-	background-color: YellowGreen;
-}*/
