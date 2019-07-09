@@ -1,15 +1,14 @@
-// NOTE: max y 11
-// max x 15
-
+var xMax = 15;
+var yMax = 11;
 var xDir = 1;
 var yDir = 0;
 var snake = [[5, 8]];
-var food = [Math.floor(Math.random() * 11), Math.floor(Math.random() * 15)];
+var food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
 var nextHeadPosX = 0;
 var nextHeadPosY = 0;
 var currentDirection = "None"; //For input control purposes
 
-var clearSnakeTail = function() {
+var clearSnakeTrail = function() {
   var grids = document.getElementsByClassName("grid");
   for (var i = 0; i < grids.length; i++) {
     removeClass(grids[i], "snake");
@@ -44,8 +43,8 @@ var updateSnake = function(ateFood) {
       //remove last element of snake array, effect like snake moving
       snake.shift();
     }
+    console.log("Debug: Current Snake Array: " + snake);
   }
-  console.log("Debug: Current Snake Array: " + snake);
 };
 
 var drawSnake = function() {
@@ -59,11 +58,71 @@ var updateFood = function() {
     document.getElementById(cellId(food[yDir], food[xDir])),
     "food"
   );
-  food = [Math.floor(Math.random() * 11), Math.floor(Math.random() * 15)];
+  food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
 };
 
 var drawFood = function() {
   addClass(document.getElementById(cellId(food[yDir], food[xDir])), "food");
+};
+
+var checkDie = function(){
+    var currentHeadPos = snake[snake.length - 1];
+    console.log(currentHeadPos);
+    //check hit wall
+    var hitWall =
+      currentHeadPos[yDir] < 0 ||
+      currentHeadPos[yDir] > yMax ||
+      currentHeadPos[xDir] < 0 ||
+      currentHeadPos[xDir] > xMax;
+    if(hitWall){
+        stopGame(gameRunning);
+        dieTasks();
+        console.log("Debug: Hit Wall");
+    };
+    //check eat self
+    if(arrayContainsArray(currentHeadPos,snake.slice(0,-1))){ //slice head away from array and compare
+            stopGame(gameRunning);
+            dieTasks();
+            console.log("Debug: Ate Self");
+    };
+};
+
+var stopGame = function(funcName){
+     clearInterval(funcName);
+};
+
+var dieTasks = function(){
+    //flash snake
+     //show game over message
+     console.log("Debug: Game over. Doing die tasks");
+};
+
+//check if key pressed and not travelling in reverse
+var changeDirection = function(event) {
+  if (event.key === "ArrowLeft" && currentDirection != "Right") {
+    //move left
+    nextHeadPosX = -1;
+    nextHeadPosY = 0;
+    currentDirection = "Left";
+  }
+  if (event.key === "ArrowRight" && currentDirection != "Left") {
+    //move right
+    nextHeadPosX = 1;
+    nextHeadPosY = 0;
+    currentDirection = "Right";
+  }
+  if (event.key === "ArrowUp" && currentDirection != "Down") {
+    //move up
+    nextHeadPosX = 0;
+    nextHeadPosY = 1;
+    currentDirection = "Up";
+  }
+  if (event.key === "ArrowDown" && currentDirection != "Up") {
+    //move down
+    nextHeadPosX = 0;
+    nextHeadPosY = -1;
+    currentDirection = "Down";
+  }
 };
 
 var cellId = function(row, col) {
@@ -79,37 +138,22 @@ var removeClass = function(element, className) {
     element.classList.remove(className);
   }
 };
-
-//check if key pressed and not travelling in reverse
-var changeDirection = function(event) {
-  if (event.key === "ArrowLeft" && currentDirection != "Right") {
-    nextHeadPosX = -1;
-    nextHeadPosY = 0;
-    currentDirection = "Left";
+var arrayContainsArray = function(subset, superset) {
+  if (0 === subset.length) {
+    return false;
   }
-  if (event.key === "ArrowRight" && currentDirection != "Left") {
-    nextHeadPosX = 1;
-    nextHeadPosY = 0;
-    currentDirection = "Right";
-  }
-  if (event.key === "ArrowUp" && currentDirection != "Down") {
-    nextHeadPosX = 0;
-    nextHeadPosY = 1;
-    currentDirection = "Up";
-  }
-  if (event.key === "ArrowDown" && currentDirection != "Up") {
-    nextHeadPosX = 0;
-    nextHeadPosY = -1;
-    currentDirection = "Down";
-  }
+  return subset.every(function(value) {
+    return superset.indexOf(value) >= 0;
+  });
 };
 
 var main = function() {
-  clearSnakeTail();
+  clearSnakeTrail();
   drawFood();
   drawSnake();
   updateSnake(checkFoodCollision());
+  checkDie();
 };
 
 document.addEventListener("keydown", changeDirection);
-setInterval(main, 200);
+var gameRunning = setInterval(main, 200);
