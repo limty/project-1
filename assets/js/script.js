@@ -8,7 +8,7 @@ var food = [Math.floor(Math.random() * 11), Math.floor(Math.random() * 15)];
 var nextHeadPosX = 0;
 var nextHeadPosY = 0;
 var currentDirection = "None"; //For input control purposes
-var ateFood = false;
+//var ateFood = false;
 
 var clearSnakeTail = function() {
   var grids = document.getElementsByClassName("grid");
@@ -20,11 +20,16 @@ var checkFoodCollision = function() {
   //If snake position === food position
   if (JSON.stringify(snake[snake.length - 1]) === JSON.stringify(food)) {
     updateFood();
-    ateFood = true;
     //increase Score and display on screen
+
+    //return value
+    return true;
   }
+  else{
+    return false;
+  };
 };
-var updateSnake = function() {
+var updateSnake = function(ateFood) {
   //move snake
   if (currentDirection != "None") {
     var nextHeadPosition = [
@@ -100,8 +105,7 @@ var main = function() {
   clearSnakeTail();
   drawFood();
   drawSnake();
-  checkFoodCollision();
-  updateSnake();
+  updateSnake(checkFoodCollision());
 };
 
 document.addEventListener("keydown", changeDirection);
