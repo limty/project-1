@@ -58,7 +58,12 @@ var updateFood = function() {
     document.getElementById(cellId(food[yDir], food[xDir])),
     "food"
   );
+  //Randomise Food Position
   food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
+//   while(){ //while food arr is in snake arr
+//     //Randomise Food Position Again
+//     food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
+//   };
 };
 
 var drawFood = function() {
@@ -89,6 +94,7 @@ var checkDie = function(){
           stopGame(gameRunning);
           dieTasks();
           console.log("Debug: Ate Self");
+          break;
         }
     }
 
@@ -111,25 +117,28 @@ var dieTasks = function(){
 
 //check if key pressed and not travelling in reverse
 var changeDirection = function(event) {
-  if (event.key === "ArrowLeft" && currentDirection != "Right") {
+  if (
+    (event.key === "ArrowLeft" || event.key === "a") &&
+    currentDirection != "Right"
+  ) {
     //move left
     nextHeadPosX = -1;
     nextHeadPosY = 0;
     currentDirection = "Left";
   }
-  if (event.key === "ArrowRight" && currentDirection != "Left") {
+  if ((event.key === "ArrowRight" || event.key === "d") && currentDirection != "Left") {
     //move right
     nextHeadPosX = 1;
     nextHeadPosY = 0;
     currentDirection = "Right";
   }
-  if (event.key === "ArrowUp" && currentDirection != "Down") {
+  if ((event.key === "ArrowUp" || event.key === "w")&& currentDirection != "Down") {
     //move up
     nextHeadPosX = 0;
     nextHeadPosY = 1;
     currentDirection = "Up";
   }
-  if (event.key === "ArrowDown" && currentDirection != "Up") {
+  if ((event.key === "ArrowDown" || event.key === "s") && currentDirection != "Up") {
     //move down
     nextHeadPosX = 0;
     nextHeadPosY = -1;
