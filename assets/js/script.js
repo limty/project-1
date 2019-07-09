@@ -67,7 +67,7 @@ var drawFood = function() {
 
 var checkDie = function(){
     var currentHeadPos = snake[snake.length - 1];
-    console.log(currentHeadPos);
+    //console.log(currentHeadPos); //For Debug
     //check hit wall
     var hitWall =
       currentHeadPos[yDir] < 0 ||
@@ -80,11 +80,25 @@ var checkDie = function(){
         console.log("Debug: Hit Wall");
     };
     //check eat self
-    if(arrayContainsArray(currentHeadPos,snake.slice(0,-1))){ //slice head away from array and compare
-            stopGame(gameRunning);
-            dieTasks();
-            console.log("Debug: Ate Self");
-    };
+    //if(arrayContainsArray(currentHeadPos,snake.slice(0,-1))){ //slice head away from array and compare
+
+    //check eat self
+    for(var i = snake.length-2; i>0; i--){
+        if (
+          snake[i][xDir] === snake[snake.length-1][xDir] &&
+          snake[i][yDir] === snake[snake.length-1][yDir]
+        ) {
+          stopGame(gameRunning);
+          dieTasks();
+          console.log("Debug: Ate Self");
+        }
+    }
+
+    //};
+};
+
+var itemInSnakeBodyArr = function(){
+
 };
 
 var stopGame = function(funcName){
