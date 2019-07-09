@@ -8,7 +8,6 @@ var food = [Math.floor(Math.random() * 11), Math.floor(Math.random() * 15)];
 var nextHeadPosX = 0;
 var nextHeadPosY = 0;
 var currentDirection = "None"; //For input control purposes
-//var ateFood = false;
 
 var clearSnakeTail = function() {
   var grids = document.getElementsByClassName("grid");
@@ -30,11 +29,12 @@ var checkFoodCollision = function() {
   };
 };
 var updateSnake = function(ateFood) {
-  //move snake
+    //If snake is moving
   if (currentDirection != "None") {
+      //move snake
     var nextHeadPosition = [
-      snake[snake.length - 1][0] + nextHeadPosY,
-      snake[snake.length - 1][1] + nextHeadPosX
+      snake[snake.length - 1][yDir] + nextHeadPosY,
+      snake[snake.length - 1][xDir] + nextHeadPosX
     ];
     snake.push(nextHeadPosition);
     if (ateFood) {
@@ -50,17 +50,20 @@ var updateSnake = function(ateFood) {
 
 var drawSnake = function() {
   snake.forEach(function(item) {
-    addClass(document.getElementById(cellId(item[0], item[1])), "snake");
+    addClass(document.getElementById(cellId(item[yDir], item[xDir])), "snake");
   });
 };
 
-var drawFood = function() {
-  addClass(document.getElementById(cellId(food[0], food[1])), "food");
+var updateFood = function() {
+  removeClass(
+    document.getElementById(cellId(food[yDir], food[xDir])),
+    "food"
+  );
+  food = [Math.floor(Math.random() * 11), Math.floor(Math.random() * 15)];
 };
 
-var updateFood = function() {
-  removeClass(document.getElementById(cellId(food[0], food[1])), "food");
-  food = [Math.floor(Math.random() * 11), Math.floor(Math.random() * 15)];
+var drawFood = function() {
+  addClass(document.getElementById(cellId(food[yDir], food[xDir])), "food");
 };
 
 var cellId = function(row, col) {
