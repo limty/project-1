@@ -13,13 +13,16 @@ table {
     border: 0;
 }
 
-.board .col {
-    background-color: green;
+.grid {
+	border-radius: 10px;
 }
 
-.board .snake {
+.snake {
     background-color: orange;
 }
-.board .food {
+.food {
 	background-color: red;
 }
+/*.bg {
+	background-color: YellowGreen;
+}*/
