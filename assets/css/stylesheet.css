@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
+
 body {
   background-image: url("../img/bg.png");
   background-color: YellowGreen;
@@ -5,8 +7,10 @@ body {
 }
 
 h1 {
+	font-family: 'Share Tech Mono', monospace;
 	letter-spacing: 0.1em;
 	font-size: 30px;
+	font-weight: bold;
 }
 
 table {
