@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
 
 body {
-  background-image: url("../img/bg.png");
-  background-color: YellowGreen;
-  color: white;
+	background-image: url("../img/bg.png");
+	background-color: YellowGreen;
+	color: white;
+	text-align: center;
 }
 
 h1 {
@@ -12,6 +13,9 @@ h1 {
 	font-size: 30px;
 	font-weight: bold;
 }
+h2{
+	letter-spacing: 0.1em;
+}
 
 table {
 	border-radius: 10px;
@@ -19,6 +23,15 @@ table {
 	background-color: white;
 /*	width: 480;
 	height: 640;*/
+}
+
+.score {
+	margin: 0 auto;
+	visibility: hidden;
+}
+
+.board {
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 .board table {
@@ -42,5 +55,9 @@ table {
 .food {
 	/*background-color: gray;*/
 	background-image: url("../img/mouse.png");
-	background-repeat: no-repeat; /*Fix image "Overflow" Problem
+	background-repeat: no-repeat; /*Fix image "Overflow" Problem*/
+}
+.button {
+	margin: 0 auto;
+	visibility: hidden;
 }
