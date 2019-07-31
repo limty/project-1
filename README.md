@@ -13,4 +13,4 @@ Use w,a,s,d keys to move up, left, down, right respectively. Capture the food to
 
 Avoid capturing self and colliding onto the walls.
 
-![alt text](https://github.com/limty/project-1/blob/master/screenshot.jpeg)
+![alt text](https://github.com/limty/project-1/blob/master/screenshot.jpg)
