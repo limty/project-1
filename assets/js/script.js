@@ -22,15 +22,14 @@ var checkFoodCollision = function() {
 
     //return value
     return true;
-  }
-  else{
+  } else {
     return false;
-  };
+  }
 };
 var updateSnake = function(ateFood) {
-    //If snake is moving
+  //If snake is moving
   if (currentDirection != "None") {
-      //move snake
+    //move snake
     var nextHeadPosition = [
       snake[snake.length - 1][yDir] + nextHeadPosY,
       snake[snake.length - 1][xDir] + nextHeadPosX
@@ -54,65 +53,61 @@ var drawSnake = function() {
 };
 
 var updateFood = function() {
-  removeClass(
-    document.getElementById(cellId(food[yDir], food[xDir])),
-    "food"
-  );
+  removeClass(document.getElementById(cellId(food[yDir], food[xDir])), "food");
   //Randomise Food Position
   food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
-//   while(){ //while food arr is in snake arr
-//     //Randomise Food Position Again
-//     food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
-//   };
+  //   while(){ //while food arr is in snake arr
+  //     //Randomise Food Position Again
+  //     food = [Math.floor(Math.random() * yMax), Math.floor(Math.random() * xMax)];
+  //   };
 };
 
 var drawFood = function() {
   addClass(document.getElementById(cellId(food[yDir], food[xDir])), "food");
 };
 
-var checkDie = function(){
-    var currentHeadPos = snake[snake.length - 1];
-    //console.log(currentHeadPos); //For Debug
-    //check hit wall
-    var hitWall =
-      currentHeadPos[yDir] < 0 ||
-      currentHeadPos[yDir] > yMax ||
-      currentHeadPos[xDir] < 0 ||
-      currentHeadPos[xDir] > xMax;
-    if(hitWall){
-        stopGame(gameRunning);
-        dieTasks();
-        console.log("Debug: Hit Wall");
-    };
+var checkDie = function() {
+  var currentHeadPos = snake[snake.length - 1];
+  //console.log(currentHeadPos); //For Debug
+  //check hit wall
+  var hitWall =
+    currentHeadPos[yDir] < 0 ||
+    currentHeadPos[yDir] > yMax ||
+    currentHeadPos[xDir] < 0 ||
+    currentHeadPos[xDir] > xMax;
+  if (hitWall) {
+    stopGame(gameRunning);
+    dieTasks();
+    console.log("Debug: Hit Wall");
+  }
 
-    //check eat self
-    for(var i = snake.length-2; i>0; i--){ //Check in body
-        if (
-          snake[i][xDir] === snake[snake.length-1][xDir] &&
-          snake[i][yDir] === snake[snake.length-1][yDir]
-        ) {
-          stopGame(gameRunning);
-          dieTasks();
-          console.log("Debug: Ate Self");
-          break;
-        }
+  //check eat self
+  for (var i = snake.length - 2; i > 0; i--) {
+    //Check in body
+    if (
+      snake[i][xDir] === snake[snake.length - 1][xDir] &&
+      snake[i][yDir] === snake[snake.length - 1][yDir]
+    ) {
+      stopGame(gameRunning);
+      dieTasks();
+      console.log("Debug: Ate Self");
+      break;
     }
+  }
 
-    //};
+  //};
 };
 
-var itemInSnakeBody = function(){
+var itemInSnakeBody = function() {};
 
+var stopGame = function(funcName) {
+  clearInterval(funcName);
 };
 
-var stopGame = function(funcName){
-     clearInterval(funcName);
-};
-
-var dieTasks = function(){
-    //flash snake
-     //show game over message
-     console.log("Debug: Game over. Doing die tasks");
+var dieTasks = function() {
+  //flash snake
+  //show game over message
+  console.log("Debug: Game over. Doing die tasks");
 };
 
 //check if key pressed and not travelling in reverse
@@ -126,19 +121,28 @@ var changeDirection = function(event) {
     nextHeadPosY = 0;
     currentDirection = "Left";
   }
-  if ((event.key === "ArrowRight" || event.key === "d") && currentDirection != "Left") {
+  if (
+    (event.key === "ArrowRight" || event.key === "d") &&
+    currentDirection != "Left"
+  ) {
     //move right
     nextHeadPosX = 1;
     nextHeadPosY = 0;
     currentDirection = "Right";
   }
-  if ((event.key === "ArrowUp" || event.key === "w")&& currentDirection != "Down") {
+  if (
+    (event.key === "ArrowUp" || event.key === "w") &&
+    currentDirection != "Down"
+  ) {
     //move up
     nextHeadPosX = 0;
     nextHeadPosY = 1;
     currentDirection = "Up";
   }
-  if ((event.key === "ArrowDown" || event.key === "s") && currentDirection != "Up") {
+  if (
+    (event.key === "ArrowDown" || event.key === "s") &&
+    currentDirection != "Up"
+  ) {
     //move down
     nextHeadPosX = 0;
     nextHeadPosY = -1;
