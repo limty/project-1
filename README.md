@@ -5,7 +5,7 @@ Read Me Contents
 
 ### Description
 
-A remix of the classic game of Nokia Snake. Created with plain HTML, CSS and Javascript, without HTML5 canvas.
+A remix of the classic game of Nokia Snake. Created with plain vanilla HTML, CSS and Javascript, without HTML5 canvas.
 
 ### Instructions
 
