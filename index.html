@@ -1,244 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Snake</title>
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link href="assets/css/stylesheet.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/generateTable.js"></script>
 </head>
+
 <body>
-    <h1 style="text-align: center">Snake</h1>
-    <div class="board">
-      <table align="center">
-        <tbody>
-          <tr>
-            <td class="grid" id="grid-11-0"></td>
-            <td class="grid" id="grid-11-1"></td>
-            <td class="grid" id="grid-11-2"></td>
-            <td class="grid" id="grid-11-3"></td>
-            <td class="grid" id="grid-11-4"></td>
-            <td class="grid" id="grid-11-5"></td>
-            <td class="grid" id="grid-11-6"></td>
-            <td class="grid" id="grid-11-7"></td>
-            <td class="grid" id="grid-11-8"></td>
-            <td class="grid" id="grid-11-9"></td>
-            <td class="grid" id="grid-11-10"></td>
-            <td class="grid" id="grid-11-11"></td>
-            <td class="grid" id="grid-11-12"></td>
-            <td class="grid" id="grid-11-13"></td>
-            <td class="grid" id="grid-11-14"></td>
-            <td class="grid" id="grid-11-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-10-0"></td>
-            <td class="grid" id="grid-10-1"></td>
-            <td class="grid" id="grid-10-2"></td>
-            <td class="grid" id="grid-10-3"></td>
-            <td class="grid" id="grid-10-4"></td>
-            <td class="grid" id="grid-10-5"></td>
-            <td class="grid" id="grid-10-6"></td>
-            <td class="grid" id="grid-10-7"></td>
-            <td class="grid" id="grid-10-8"></td>
-            <td class="grid" id="grid-10-9"></td>
-            <td class="grid" id="grid-10-10"></td>
-            <td class="grid" id="grid-10-11"></td>
-            <td class="grid" id="grid-10-12"></td>
-            <td class="grid" id="grid-10-13"></td>
-            <td class="grid" id="grid-10-14"></td>
-            <td class="grid" id="grid-10-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-9-0"></td>
-            <td class="grid" id="grid-9-1"></td>
-            <td class="grid" id="grid-9-2"></td>
-            <td class="grid" id="grid-9-3"></td>
-            <td class="grid" id="grid-9-4"></td>
-            <td class="grid" id="grid-9-5"></td>
-            <td class="grid" id="grid-9-6"></td>
-            <td class="grid" id="grid-9-7"></td>
-            <td class="grid" id="grid-9-8"></td>
-            <td class="grid" id="grid-9-9"></td>
-            <td class="grid" id="grid-9-10"></td>
-            <td class="grid" id="grid-9-11"></td>
-            <td class="grid" id="grid-9-12"></td>
-            <td class="grid" id="grid-9-13"></td>
-            <td class="grid" id="grid-9-14"></td>
-            <td class="grid" id="grid-9-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-8-0"></td>
-            <td class="grid" id="grid-8-1"></td>
-            <td class="grid" id="grid-8-2"></td>
-            <td class="grid" id="grid-8-3"></td>
-            <td class="grid" id="grid-8-4"></td>
-            <td class="grid" id="grid-8-5"></td>
-            <td class="grid" id="grid-8-6"></td>
-            <td class="grid" id="grid-8-7"></td>
-            <td class="grid" id="grid-8-8"></td>
-            <td class="grid" id="grid-8-9"></td>
-            <td class="grid" id="grid-8-10"></td>
-            <td class="grid" id="grid-8-11"></td>
-            <td class="grid" id="grid-8-12"></td>
-            <td class="grid" id="grid-8-13"></td>
-            <td class="grid" id="grid-8-14"></td>
-            <td class="grid" id="grid-8-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-7-0"></td>
-            <td class="grid" id="grid-7-1"></td>
-            <td class="grid" id="grid-7-2"></td>
-            <td class="grid" id="grid-7-3"></td>
-            <td class="grid" id="grid-7-4"></td>
-            <td class="grid" id="grid-7-5"></td>
-            <td class="grid" id="grid-7-6"></td>
-            <td class="grid" id="grid-7-7"></td>
-            <td class="grid" id="grid-7-8"></td>
-            <td class="grid" id="grid-7-9"></td>
-            <td class="grid" id="grid-7-10"></td>
-            <td class="grid" id="grid-7-11"></td>
-            <td class="grid" id="grid-7-12"></td>
-            <td class="grid" id="grid-7-13"></td>
-            <td class="grid" id="grid-7-14"></td>
-            <td class="grid" id="grid-7-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-6-0"></td>
-            <td class="grid" id="grid-6-1"></td>
-            <td class="grid" id="grid-6-2"></td>
-            <td class="grid" id="grid-6-3"></td>
-            <td class="grid" id="grid-6-4"></td>
-            <td class="grid" id="grid-6-5"></td>
-            <td class="grid" id="grid-6-6"></td>
-            <td class="grid" id="grid-6-7"></td>
-            <td class="grid" id="grid-6-8"></td>
-            <td class="grid" id="grid-6-9"></td>
-            <td class="grid" id="grid-6-10"></td>
-            <td class="grid" id="grid-6-11"></td>
-            <td class="grid" id="grid-6-12"></td>
-            <td class="grid" id="grid-6-13"></td>
-            <td class="grid" id="grid-6-14"></td>
-            <td class="grid" id="grid-6-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-5-0"></td>
-            <td class="grid" id="grid-5-1"></td>
-            <td class="grid" id="grid-5-2"></td>
-            <td class="grid" id="grid-5-3"></td>
-            <td class="grid" id="grid-5-4"></td>
-            <td class="grid" id="grid-5-5"></td>
-            <td class="grid" id="grid-5-6"></td>
-            <td class="grid" id="grid-5-7"></td>
-            <td class="grid" id="grid-5-8"></td>
-            <td class="grid" id="grid-5-9"></td>
-            <td class="grid" id="grid-5-10"></td>
-            <td class="grid" id="grid-5-11"></td>
-            <td class="grid" id="grid-5-12"></td>
-            <td class="grid" id="grid-5-13"></td>
-            <td class="grid" id="grid-5-14"></td>
-            <td class="grid" id="grid-5-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-4-0"></td>
-            <td class="grid" id="grid-4-1"></td>
-            <td class="grid" id="grid-4-2"></td>
-            <td class="grid" id="grid-4-3"></td>
-            <td class="grid" id="grid-4-4"></td>
-            <td class="grid" id="grid-4-5"></td>
-            <td class="grid" id="grid-4-6"></td>
-            <td class="grid" id="grid-4-7"></td>
-            <td class="grid" id="grid-4-8"></td>
-            <td class="grid" id="grid-4-9"></td>
-            <td class="grid" id="grid-4-10"></td>
-            <td class="grid" id="grid-4-11"></td>
-            <td class="grid" id="grid-4-12"></td>
-            <td class="grid" id="grid-4-13"></td>
-            <td class="grid" id="grid-4-14"></td>
-            <td class="grid" id="grid-4-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-3-0"></td>
-            <td class="grid" id="grid-3-1"></td>
-            <td class="grid" id="grid-3-2"></td>
-            <td class="grid" id="grid-3-3"></td>
-            <td class="grid" id="grid-3-4"></td>
-            <td class="grid" id="grid-3-5"></td>
-            <td class="grid" id="grid-3-6"></td>
-            <td class="grid" id="grid-3-7"></td>
-            <td class="grid" id="grid-3-8"></td>
-            <td class="grid" id="grid-3-9"></td>
-            <td class="grid" id="grid-3-10"></td>
-            <td class="grid" id="grid-3-11"></td>
-            <td class="grid" id="grid-3-12"></td>
-            <td class="grid" id="grid-3-13"></td>
-            <td class="grid" id="grid-3-14"></td>
-            <td class="grid" id="grid-3-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-2-0"></td>
-            <td class="grid" id="grid-2-1"></td>
-            <td class="grid" id="grid-2-2"></td>
-            <td class="grid" id="grid-2-3"></td>
-            <td class="grid" id="grid-2-4"></td>
-            <td class="grid" id="grid-2-5"></td>
-            <td class="grid" id="grid-2-6"></td>
-            <td class="grid" id="grid-2-7"></td>
-            <td class="grid" id="grid-2-8"></td>
-            <td class="grid" id="grid-2-9"></td>
-            <td class="grid" id="grid-2-10"></td>
-            <td class="grid" id="grid-2-11"></td>
-            <td class="grid" id="grid-2-12"></td>
-            <td class="grid" id="grid-2-13"></td>
-            <td class="grid" id="grid-2-14"></td>
-            <td class="grid" id="grid-2-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-1-0"></td>
-            <td class="grid" id="grid-1-1"></td>
-            <td class="grid" id="grid-1-2"></td>
-            <td class="grid" id="grid-1-3"></td>
-            <td class="grid" id="grid-1-4"></td>
-            <td class="grid" id="grid-1-5"></td>
-            <td class="grid" id="grid-1-6"></td>
-            <td class="grid" id="grid-1-7"></td>
-            <td class="grid" id="grid-1-8"></td>
-            <td class="grid" id="grid-1-9"></td>
-            <td class="grid" id="grid-1-10"></td>
-            <td class="grid" id="grid-1-11"></td>
-            <td class="grid" id="grid-1-12"></td>
-            <td class="grid" id="grid-1-13"></td>
-            <td class="grid" id="grid-1-14"></td>
-            <td class="grid" id="grid-1-15"></td>
-        </tr>
-        <tr>
-            <td class="grid" id="grid-0-0"></td>
-            <td class="grid" id="grid-0-1"></td>
-            <td class="grid" id="grid-0-2"></td>
-            <td class="grid" id="grid-0-3"></td>
-            <td class="grid" id="grid-0-4"></td>
-            <td class="grid" id="grid-0-5"></td>
-            <td class="grid" id="grid-0-6"></td>
-            <td class="grid" id="grid-0-7"></td>
-            <td class="grid" id="grid-0-8"></td>
-            <td class="grid" id="grid-0-9"></td>
-            <td class="grid" id="grid-0-10"></td>
-            <td class="grid" id="grid-0-11"></td>
-            <td class="grid" id="grid-0-12"></td>
-            <td class="grid" id="grid-0-13"></td>
-            <td class="grid" id="grid-0-14"></td>
-            <td class="grid" id="grid-0-15"></td>
-        </tr>
-    </tbody>
-</table>
-<div class="preview"></div>
-<div class="instructions">
-  <h2>Instructions</h2>
-  <p>Use w,a,s,d or arrow keys to move snake.</p>
-</div>
-<div class="score">
-    <p>Game is Over</p>
-    <p>Your score is <span class="score-value"></span></p>
-</div>
-<button class="button" type="button">Start</button>
-</div>
-<script src="assets/js/script.js" charset="utf-8"></script>
+    <h1 class="title">Snake</h1>
+    <div class="container">
+        <div class="score">
+            <p>Score: <span id="score-value">-</span></p>
+        </div>
+        <div class="board"></div>
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>Use w,a,s,d or arrow keys to move snake.</p>
+        </div>
+        <div id="game-over">
+            <p>Game Over. Try again!</p>
+            <button class="button" id="restart" type="button">Restart</button>
+        </div>
+    </div>
+    <script src="assets/js/script.js" charset="utf-8"></script>
 </body>
+
 </html>

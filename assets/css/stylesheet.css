@@ -1,63 +1,62 @@
-@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
-
 body {
-	background-image: url("../img/bg.png");
-	background-color: YellowGreen;
-	color: white;
-	text-align: center;
+  background-image: url("../img/bg.png");
+  background-color: YellowGreen;
+  color: white;
+  text-align: center;
 }
 
-h1 {
-	font-family: 'Share Tech Mono', monospace;
-	letter-spacing: 0.1em;
-	font-size: 30px;
-	font-weight: bold;
-}
-h2{
-	letter-spacing: 0.1em;
+.title {
+  font-family: "Share Tech Mono", monospace;
+  letter-spacing: 0.1em;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
 }
 
-table {
-	border-radius: 10px;
-	border: solid black 1px;
-	background-color: white;
-/*	width: 480;
-	height: 640;*/
+h2 {
+  letter-spacing: 0.1em;
 }
 
 .score {
-	margin: 0 auto;
-	visibility: hidden;
+  margin: 0 auto;
+}
+
+table {
+  border-radius: 10px;
+  border: solid black 1px;
+  background-color: white;
 }
 
 .board {
-	font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .board table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
-
 .board td {
-    width: 40px;
-    height: 40px;
-    border: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
 }
 
 .grid {
-	border-radius: 10px;
+  border-radius: 10px;
 }
 
 .snake {
-    background-color: green;
+  background-color: green;
 }
 .food {
-	/*background-color: gray;*/
-	background-image: url("../img/mouse.png");
-	background-repeat: no-repeat; /*Fix image "Overflow" Problem*/
+  /*background-color: gray;*/
+  background-image: url("../img/mouse.png");
+  background-repeat: no-repeat; /*Fix image "Overflow" Problem*/
 }
+#game-over {
+  visibility: hidden;
+}
+
 .button {
-	margin: 0 auto;
-	visibility: hidden;
+  margin: 0 auto;
 }
